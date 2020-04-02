@@ -1,0 +1,25 @@
+header.masthead{
+	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(asset-path("photo-1522071820081-009f0129c71c.jpg"));
+	height: 750px;
+	margin-top: 0px;
+	margin-bottom: 20px;
+	line-height: 50px;
+	text-align: left !important;
+}
+
+header.masthead h1{
+	line-height: 70px;
+	padding-bottom: 40px;
+}
+
+header.masthead h5{
+	line-height: 35px;
+	padding-bottom: 40px;
+
+}
+
+.hero-text {
+  text-align: center;
+  color: white;
+	top: 50%;
+}

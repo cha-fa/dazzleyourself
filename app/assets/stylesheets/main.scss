@@ -1,0 +1,163 @@
+header{
+  margin-left: 0;
+}
+
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  
+}
+
+.hero-image {
+  background-image: url(asset-path("photo-1522071820081-009f0129c71c.jpg"));
+}
+
+.hero-text {
+  text-align: center;
+  color: white;
+  top: 50%;
+}
+
+
+hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 30px;
+  margin-left: 70px;
+  margin-right: 70px;
+  border-style: inset;
+  border-width: 1px;
+} 
+
+.page-section {
+  padding: 10px 0;
+}
+
+.stripe-button-el span {
+
+  background-image:none !important;
+  background-color: #fed136 !important;
+}
+
+.navbar {
+  height: 72px;
+}
+
+.collapse.show{
+  background-color: #212529;
+  margin-top: 0;
+  padding: 2em;
+}
+
+.nav-link{
+  margin-right: 20px;
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+  display: flex;
+  align-items: center;
+}
+.headline {
+  color:#fed136;
+  text-align: center;
+}
+
+.price {
+  font-weight: 700;
+}
+
+.grey-box {
+  background-color: #ebebeb81;
+  border-radius: 0.25rem;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+
+.product-image {
+position: absolute;
+top: 100px;
+}
+
+a[href*="/tags/"] {
+  display: inline-block;
+  padding: 0.4em 0.8em;
+  margin-right: 0.4em;
+  font-size: 85%;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  border-radius: 10rem;
+  color: #fff;
+  background-color:#343a40;
+}
+
+a[href*="/tags/"]:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: #fed136;
+  font-weight: 900;
+} 
+
+.overlay {
+  position: absolute;
+  top: 10px;
+}
+
+.tag-filter {
+  background-color: #fed136 !important;
+  font-weight: 600 !important;
+  font-size: 90%;
+}
+
+.filter-box {
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  position: relative;
+  top: 10px;
+}
+
+.chat-section{
+  height: 750px;
+  overflow-y: scroll;
+}
+
+.post-section{
+  max-height: 350px;
+  max-width: 700px;
+  overflow-y: scroll;
+}
+
+.comment-section{
+  max-height: 250px;
+  max-width: 700px;
+  overflow-y: scroll;
+}
+
+.bg-menu {
+  background-color: #212529;
+  padding: 1rem 3rem;
+}
+
+.no-border {
+border: none;
+}
+
+.shadow-sm {
+  padding-bottom: 70;
+}

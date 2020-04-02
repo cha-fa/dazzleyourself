@@ -1,0 +1,89 @@
+<div class="row mt-0">
+  <div class="col-lg-12">
+        <div class="jumbotron-user jumbotron-user-fluid mt-0 ">
+            <div class="mx-5 my-5 pt-0 px-5 d-flex justify-content-start align-items-center">
+              <% if @user.avatar.attached? %>
+                <%= image_tag url_for(@user.thumbnail), alt: 'avatar' %>
+              <% else %>
+                <%= image_tag asset_path("avatar_2x.png"), class:"avatar-small img-circle img-thumbnail my-3", alt:"avatar"%>
+              <%end%>
+              <h1 class="mt-1 mb-1 mx-3 text-light"><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
+              <div class="mx-5 my-1 d-flex justify-content-end">
+              <% if current_user == @user %>
+              <%= link_to "Modifier", edit_user_path(current_user.id), :class =>"btn btn-sm btn-dark" %>
+              <% end %>
+            </div>
+            </div>
+        </div>
+<div class="row my-2">
+  <div class="col-md-4 p-4">
+    <div class="text-center shadow m-4 p-4">
+      <h5><i class="fas fa-user-cog" style="margin-right: 8px;"></i> Ses compétences :</h5>
+      <% if @skill_setup_primary %>
+      <p><%= @skill_setup_primary.skill.title %></p>
+      <% else %>
+      <p>Ce membre n'a pas encore indiqué ses compétences.</p>
+        <% if current_user %>
+        <%= link_to "Modifier", edit_user_path(current_user.id), :class =>"btn btn-sm btn-dark" %>
+        <% end %>
+      <%end%>
+      <% if @skill_setup_secondary %>
+      <p><%= @skill_setup_secondary.skill.title %></p>
+      <%end%>
+    </div>
+  </div>
+  <div class="col-md-8 p-4 ">
+    <div class="px-5 pt-2 pb-5 mr-4">
+      <h5 class='my-4'>Les projets que ce membre a proposé :</h5>
+      <% if @projects[0] %>
+      <div class="row">
+            <% @projects.each do |project| %>
+            <% if project.state == "published" %>
+              <div class="col-sm-4">
+                  <div class="card text-dark bg-light mb-3" style="max-width: 20rem;">
+                      <div class="card-header">Projet : <%= project.title.capitalize%><br></div>
+                      <div class="card-body">
+                          <p class="card-text"><%= project.start_date.strftime("Le %d/%m/%Y à %I:%M")%></p>
+                          <%= link_to "Voir le projet", project_path(project.id), :class =>"btn btn-sm btn-dark" %>
+                      </div>
+                  </div>
+              </div>
+              <% end %>
+            <% end %>
+          </div>
+        <% else %>
+          <% if @user == current_user %>
+            <p class="text-secondary">Vous n'avez proposé aucun projet pour le moment.</p>
+            <%= render 'layouts/CTA_projectnew' %> 
+            <%else%>
+            <p class="text-secondary">Ce membre n'a proposé aucun projet pour le moment.</p>
+          <%end%>
+        <%end%>
+        <hr class="my-4">
+        <h5 class='my-4'>Les projets auxquels ce membre a participé :</h5>
+        <% if @attendances[0] %>
+            <% @attendances.each do |attendance| %>
+            <% if attendance.project.state == "published" %>
+            <div class="col-sm-2">
+                <div class="card text-dark bg-light mb-3" style="max-width: 20rem;">
+                    <div class="card-header"><%= attendance.project.title.capitalize%><br></div>
+                    <div class="card-body">
+                        <p class="card-text"><%= attendance.project.start_date.strftime("Le %d/%m/%Y à %I:%M")%></p>
+                    </div>
+                </div>
+            </div>
+            <%end%>
+          <%end%>
+        </div>
+      <% else %>
+        <% if @user == current_user %>
+          <p class="text-secondary">Vous n'avez participé à aucun projet pour le moment.</p>
+          <%= render 'layouts/CTA_attendee' %> 
+        <%else%>
+          <p class="text-secondary">Ce membre n'a participé à aucun projet pour le moment.</p>
+        <%end%>
+      <%end%>
+    </div>
+  </div>
+</div>
+

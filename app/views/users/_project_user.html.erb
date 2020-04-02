@@ -1,0 +1,31 @@
+
+<div class="container bootstrap snippet my-5">
+<h3>Les projets dont je suis l'organisateur :</h3>
+<% if @projects[0] %>
+    <div class="row my-4">
+        <% @projects.sort_by(&:start_date).each do |project| %>
+        <div class="col-sm-6 my-2">
+            <div class="card text-dark bg-light mb-3" style="max-width: 20rem;">
+                <%= link_to project_path(project.id) do %>
+                  <div class="card-header font-weight-bold"> <h4> <%= project.title.capitalize%> </h4> </div>
+                <% end %>
+                <div class="card-body">
+                  <p class="card-text"><span class="font-weight-bold">Date :</span> <%= project.start_date.strftime("%d/%m/%Y à %I:%M")%></p>
+                  <p class="card-text"><span class="font-weight-bold">Etat du projet :</span> <%= project.state%></p>
+                </div>
+                <div class="card-body">
+                <%= button_to "Poursuivre", edit_project_path(project.id), method: 'get', class:"btn btn-sm btn-secondary"%>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>  
+
+    <% else %>
+    <p class="my-5">Vous n'avez proposé aucun projet pour le moment.</p>
+    <% end%>
+    <hr>
+
+</div>
+
+ 

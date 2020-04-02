@@ -1,0 +1,14 @@
+
+.jumbotron  {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(asset-path('photo-1526913299589-f35a3ddeb7ae.jpg'));
+    height: 400px;
+    background-size:  contain, cover;
+    background-position: center;
+  }
+
+  homepage-jumbotron.hero-text {
+  position: absolute;
+  margin-top: 50 px;
+  left: 50%;
+  color: white;
+}

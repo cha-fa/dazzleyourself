@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DazzleYourself</title>
+    <html lang="fr">
+    <%= csrf_meta_tags %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => "reload" %>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+  <%= render 'layouts/header' %>
+  <%= render 'layouts/flash'%>
+
+
+<div class="container bootstrap snippet mx-5 mt-3 mb-5">
+  <br>
+  <div class="row m-4">
+    <div class="col-sm-12"><h1>Suivez l'avancée de votre projet !</h1></div>
+  </div>
+  <div class="row m-4">
+    <div class="col-md-4 shadow p-4">
+      <div class="card" style="width: 18rem;">
+        <%if @project.image.attached?%>
+          <%= image_tag url_for(@project.banner), alt: 'project image', class:"my-4 mx-4", width: '250' %>
+        <%else%>
+          <%= image_tag asset_path("no-image.jpg"), class:"my-4 mx-4", alt: "placeholder",width: '250'%>
+        <%end%>
+      
+        <div class="card-body">
+          <h5 class="card-title"><%=@project.title%></h5>
+          <p class="card-text"><%= @project.short_description %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">A commencé le <%= @project.start_date.strftime("%d/%m/%Y à %I:%M") %></li>
+          <li class="list-group-item">Termine le <%= @project.end_date.strftime("%d/%m/%Y à %I:%M")%></li>
+          <li class="list-group-item">Porteur du projet : <%= @project.owner.first_name %></li>
+        </ul>
+        <div class="card-body">
+          <%= link_to 'Le projet en détails', project_path(@project.id), class:"card-link", :target => "_blank"  %>
+        </div>
+      </div>
+    </div>
+ 
+
+    <div class="col-md-8 pt-4 pl-5">
+      <ul class="nav nav-tabs">
+        <li class="nav-item active">
+          <a class="nav-link " data-toggle="tab" href="#intro">Introduction</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link " data-toggle="tab" href="#group">Mon groupe</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link " data-toggle="tab"  href="#resources">Ressources</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link " data-toggle="tab"  href="#chat">Discussion</a>
+        </li>
+      </ul>
+
+<%= yield %>
+    </div>
+  </div>
+</div>
+
+
+  <%= render 'layouts/footer'%>
+  </body>
+  <script src="https://kit.fontawesome.com/d714c2541d.js" crossorigin="anonymous"></script>
+</html>
+  

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Nous sommes ravis de t'accueillir sur Dazzle Yourself !</h1>
+    <p>Tu retrouveras toutes les informations de ton profil <%= link_to "en cliquant ici", user_url(@user.id) %>.</p>
+    <p>N'hésites pas à te lancer dans une aventure entrepreneuriale, soit en participant à un <%= link_to 'des projets proposés,', projects_url %> ou en <%= link_to 'créant le tien', new_project_url %> !</p>
+    <p>À très vite ! </p>
+  </body>
+</html>
